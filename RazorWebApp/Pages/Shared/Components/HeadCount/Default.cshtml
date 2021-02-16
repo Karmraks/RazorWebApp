@@ -1,0 +1,20 @@
+﻿@model IEnumerable<DeptHandCount>
+
+<table class="table table-hover rounded-pill">
+
+    <thead class="thead-light">
+        <tr>
+            <td>Department</td>
+            <td>Head Count</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Department</td>
+                <td>@item.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>

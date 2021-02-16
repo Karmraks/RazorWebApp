@@ -1,9 +1,16 @@
-﻿@page
+﻿@page "{id}"
 @model RazorWebApp.Pages.Employees.DetailsModel
 @{
     ViewData["Title"] = "Employee Detail";
     var photoPath = $"/images/{Model.Employee.PhotoPath ?? "noimage.png"}";
 }
+<div class="row justify-content-center m-3">
+    <div class="col col-lg-8">
+        @*await Component.InvokeAsync("HeadCount", new { department = Model.Employee.Department })*@
+        <vc:head-count department="@Model.Employee.Department"></vc:head-count>
+    </div>
+</div>
+
 
 <div class="row justify-content-center m-3">
     <div class="col col-lg-8">
@@ -21,7 +28,7 @@
                     </div>
                     <div class="col col-lg-3">
                         <div style="border-right: 1px solid rgba(0,0,0, .1);">
-                            <img class="card-img-top imageThumbnail border border-primary" src="@photoPath" alt="" style="background-color: #dle7ff" asp-append-version="true"/>
+                            <img class="card-img-top imageThumbnail border border-primary" src="@photoPath" alt="" style="background-color: #dle7ff" asp-append-version="true" />
                         </div>
                     </div>
                 </div>
@@ -29,12 +36,12 @@
                     <div class="col">
                         <div class="card-footer text-center" style="background-color: rgba(0,0,0,0.25);">
                             <a asp-page="Employees" class="btn btn-success buttonShadow">Back</a>
-                            <a href="#" class="btn btn-primary buttonShadow">Edit</a>
+                            <a asp-page="/Employees/Edit" class="btn btn-primary buttonShadow">Edit</a>
                             <a href="#" class="btn btn-danger buttonShadow">Delete</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 </div>
